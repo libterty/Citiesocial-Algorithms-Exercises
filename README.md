@@ -7,17 +7,17 @@
 ## Example
 
 - 多階等差數列
-![image](https://github.com/libterty/Citiesocial-Algorithms-Exercises/tree/master/assets/img/多階等差數列.png)
-![image](https://github.com/libterty/Citiesocial-Algorithms-Exercises/tree/master/assets/img/多階等差數列2.png)
+![image](https://github.com/libterty/Citiesocial-Algorithms-Exercises/blob/master/assets/img/多階等差數列.png)
+![image](https://github.com/libterty/Citiesocial-Algorithms-Exercises/blob/master/assets/img/多階等差數列2.png)
 
 - 等差數列
-![image](https://github.com/libterty/Citiesocial-Algorithms-Exercises/tree/master/assets/img/等差數列.png)
+![image](https://github.com/libterty/Citiesocial-Algorithms-Exercises/blob/master/assets/img/等差數列.png)
 
 - 等比數列
-![image](https://github.com/libterty/Citiesocial-Algorithms-Exercises/tree/master/assets/img/等比數列.png)
+![image](https://github.com/libterty/Citiesocial-Algorithms-Exercises/blob/master/assets/img/等比數列.png)
 
 - 費氏數列
-![image](https://github.com/libterty/Citiesocial-Algorithms-Exercises/tree/master/assets/img/費式數列.png)
+![image](https://github.com/libterty/Citiesocial-Algorithms-Exercises/blob/master/assets/img/費式數列.png)
 
 ## Available Scripts
 
