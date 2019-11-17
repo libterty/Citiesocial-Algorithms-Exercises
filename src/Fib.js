@@ -22,12 +22,11 @@
 /**
  * @param {array} fn 
  */
-export default function fib(n) {
-    console.log('input', n)
+function fib(n) {
     // 回返的陣列
     const result = [];
     // 計數器
-    let i = 0;
+    let i=0;
   
     // edge case 當input沒有值時 return 10組 0
     if (n.length === 0) {
@@ -54,8 +53,6 @@ export default function fib(n) {
   
     // 當input Array只有包含兩個int時，為等差數列。
     // 當input Array大於兩個int時，可能為等差，多階等差，等比或費氏數列。
-  
-   
     if (n.length <= 2) {
       // 當input陣列只有兩組Int時，必為等差數列 (題目解釋)，否則可為等差或費式數列
       while(i < 10) {
@@ -65,59 +62,75 @@ export default function fib(n) {
         i++;
       }
     } else {
-      // 等差數列
-      if (n[n.length - 1] - n[n.length - 2] === n[n.length - 2] - n[n.length - 3]) {
-        console.log('等差數列');
-        while(i < 10) {
-          result.length === 0 
-            ? result.push(n[n.length - 1] + (n[n.length - 2] - n[n.length - 3]))
-            : result.push(result[result.length - 1] + ((n[n.length - 2] - n[n.length - 3])));
-          i++;
-        }
-      }
+      const last = n[n.length - 1];
+      const next = n[n.length - 2];
+      const start = n[n.length - 3];
   
-      // 多階等差數列
-      if ((n[n.length - 1] - n[n.length - 2]) / (n[n.length - 2] - n[n.length - 3]) > 1) {
-        console.log('多階等差數列')
-        while(i < 10) {
-          result.length === 0
-            ? result.push(n[n.length - 1] + ((n[n.length - 1] - n[n.length - 2]) / (n[n.length - 2] - n[n.length - 3]) * (n[n.length - 1] - n[n.length - 2])))
-            : result.length === 1
-            ? result.push(result[0] + ((result[0] - n[n.length - 1]) / (n[n.length - 1] - n[n.length - 2])) * (result[0] - n[n.length - 1]))
-            : result.length === 2
-            ? result.push(result[result.length - 1] + ((result[result.length - 1] - result[result.length - 2]) / (result[result.length - 2] - n[n.length - 1]) * (result[result.length - 1] - result[result.length - 2])))
-            : result.push(result[result.length - 1] + ((result[result.length - 1] - result[result.length - 2]) / (result[result.length - 2] - result[result.length - 3])) * (result[result.length - 1] - result[result.length - 2]));
-          i++;
-        }
-      }
-
       // 費式數列
       if (n[0] === 0 && n[1] === n[2]) {
-        console.log('費式數列')
         while (i < 10) {
           result.length === 0
-            ? result.push(n[n.length - 1] + n[n.length - 2])
+            ? result.push(last + next)
             : result.length === 1
-            ? result.push(result[0] + n[n.length - 1])
+            ? result.push(result[0] + last)
             : result.push(result[result.length - 1] + result[result.length - 2]);
           i++;
         }
       }
   
       // 等比數列
-      if (n[n.length - 1] === n[n.length - 2] * n[n.length - 2] && (n[n.length - 1] - n[n.length - 2] !== n[n.length - 2] - n[n.length - 3])) {
-        console.log('等比數列')
+      if (last === next * next && (last - next !== next - start)) {
         while (i < 10) {
           result.length === 0
-            ? result.push(n[n.length - 1] * n[n.length - 1])
+            ? result.push(last * last)
             : result.push(result[result.length - 1] * result[result.length - 1]);
+          i++;
+        }
+      }
+  
+      // 等差數列
+      if (last - next === next - start) {
+        while(i < 10) {
+          result.length === 0 
+            ? result.push(last + (next - start))
+            : result.push(result[result.length - 1] + ((next - start)));
+          i++;
+        }
+      }
+  
+      // 多階等差數列
+      if ((last - next) % (next - start) !== 0) {
+        console.log('check');
+        while (i < 10) {
+          const diff = (last - next) - (next - start);
+          result.length === 0
+            ? result.push(last + (last - next) + diff)
+            : result.length === 1
+            ? result.push(result[0] + (result[0] - last) + diff)
+            : result.length === 2
+            ? result.push(result[1] + (result[1] - result[0]) + diff)
+            : result.push(result[result.length - 1] + (result[result.length - 1] - result[result.length - 2]) + diff);
+          i++;
+        }
+      }
+  
+      // 多階等差數列
+      if ((last - next) / (next - start) > 1 && (last - next) % (next - start) === 0) {
+        while(i < 10) {
+          result.length === 0
+            ? result.push(last + ((last - next) / (next - start) * (last - next)))
+            : result.length === 1
+            ? result.push(result[0] + ((result[0] - last) / (last - next)) * (result[0] - last))
+            : result.length === 2
+            ? result.push(result[result.length - 1] + ((result[result.length - 1] - result[result.length - 2]) / (result[result.length - 2] - last) * (result[result.length - 1] - result[result.length - 2])))
+            : result.push(result[result.length - 1] + ((result[result.length - 1] - result[result.length - 2]) / (result[result.length - 2] - result[result.length - 3])) * (result[result.length - 1] - result[result.length - 2]));
           i++;
         }
       }
   
     }
     return result;
-  }
+}
   
   
   
@@ -128,9 +141,12 @@ export default function fib(n) {
 // console.log('只有輸入兩組數值(一題目描述必為等差數列))', fib([4, 14]));
 // console.log('輸入多組數值但為等差數列', fib([4, 14, 24]));
 // console.log('輸入多組數值但為等差數列 (edge case))', fib([0, 2, 4]));
+// console.log('----------------------------------------------');
+// console.log('輸入多組數值但為高階等差數列', fib([2, 6, 12]));
 // console.log('輸入多組數值但為高階等差數列', fib([4, 14, 34, 74]));
 // console.log('輸入多組數值但為等比數列', fib([3, 9, 81]));
 // console.log('輸入多組數值但為等比數列', fib([3, 9, 81, 6561]));
 // console.log('輸入多組數值但為費式數列', fib([0, 2, 2]));
 // console.log('輸入多組數值但為費式數列', fib([0, 1, 1, 2]));
 // console.log('不合法陣列', fib([0, 0, 1, 2]));
+// console.log(fib([2, 4, 6]));

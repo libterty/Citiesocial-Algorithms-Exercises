@@ -24,10 +24,10 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App container">
       <Form>
         <FormGroup>
-          <Label for="randomNum">Input without validation</Label>
+          <Label for="randomNum">請輸入你像要的數字(小提醒：每個數字間要空格喔！)</Label>
           <Input
             type="text"
             value={number}
