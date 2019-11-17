@@ -13,7 +13,7 @@
 - 等差數列
 ![image](https://github.com/libterty/Citiesocial-Algorithms-Exercises/blob/master/assets/img/等差數列.png)
 
-- 等比數列
+- n次方數列
 ![image](https://github.com/libterty/Citiesocial-Algorithms-Exercises/blob/master/assets/img/等比數列.png)
 
 - 費氏數列
