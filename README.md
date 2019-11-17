@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Citiesocial-Algorithms-Exercises
+
+- 給定一個Random Int會輸出10組關聯數列
 
 ## Available Scripts
 
