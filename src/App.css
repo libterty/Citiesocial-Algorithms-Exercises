@@ -21,3 +21,13 @@
 .App-link {
   color: #09d3ac;
 }
+
+.form-group {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+input#randomNum {
+  width: 50%;
+  margin-left: 25%;
+}
